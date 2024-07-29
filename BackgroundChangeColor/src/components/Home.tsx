@@ -20,7 +20,8 @@ function Home() {
     <div className="flex gap-10 items-center justify-center h-screen w-full">
       <span
         onClick={() => colorChange("green")}
-        className={`w-40 h-40 ring-2 ring-black inline-flex text-center font-bold bg-green-500 ${
+        className={`w-40 h-40 ring-2 ring-black inline-flex text-center items-center
+        font-bold bg-green-500 justify-center cursor-pointer font-bold${
           selectedColor === "green" ? "bg-green-700" : ""
         }`}
       >
@@ -28,7 +29,8 @@ function Home() {
       </span>
       <span
         onClick={() => colorChange("blue")}
-        className={`w-40 h-40 ring-2  ring-black text-center font-bold bg-blue-500 ${
+        className={`w-40 h-40 ring-2  ring-black inline-flex text-center items-center
+        font-bold bg-blue-500 justify-center cursor-pointer font-bold${
           selectedColor === "blue" ? "bg-blue-700" : ""
         }`}
       >
@@ -36,7 +38,8 @@ function Home() {
       </span>
       <span
         onClick={() => colorChange("yellow")}
-        className={`w-40 h-40 ring-2 ring-black  text-center font-bold bg-yellow-500 ${
+        className={`w-40 h-40 ring-2 ring-black inline-flex text-center items-center
+        font-bold bg-yellow-500 justify-center cursor-pointer font-bold${
           selectedColor === "yellow" ? "bg-yellow-700" : ""
         }`}
       >
@@ -44,7 +47,8 @@ function Home() {
       </span>
       <span
         onClick={() => colorChange("orange")}
-        className={`w-40 h-40 ring-2  ring-black  text-center font-bold bg-orange-500 ${
+        className={`w-40 h-40 ring-2  ring-black  inline-flex text-center items-center
+        font-bold bg-orange-500 justify-center cursor-pointer font-bold${
           selectedColor === "orange" ? "bg-orange-700" : ""
         }`}
       >

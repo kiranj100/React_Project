@@ -17,7 +17,7 @@ function Home() {
   }, [selectedColor]);
 
   return (
-    <div className="flex gap-10 items-center justify-center h-screen w-full">
+    <div className="flex flex-wrap gap-10 items-center justify-center h-screen w-full">
       <span
         onClick={() => colorChange("green")}
         className={`w-40 h-40 ring-2 ring-black inline-flex text-center items-center

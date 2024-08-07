@@ -1,24 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Home from "./components/Home/Home.jsx";
 import AddItems from "./components/Home/AddItems/AddItems.jsx";
 function App() {
   const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem("shoppinglist"))
+    JSON.parse(localStorage.getItem("shoppinglist") || [])
   );
   const [newItem, setNewItem] = useState("");
-  const [search, setSearch] = useState("");
 
-  const setAndSaveItems = (shoppingItems) => {
-    setItems(shoppingItems);
-    localStorage.setItem("shoppinglist", JSON.stringify(shoppingItems));
-  };
+  useEffect(() => {
+    localStorage.setItem("shoppinglist", JSON.stringify(items));
+  }, [items]);
 
   const addItem = (name) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
     const myNewItem = { id, checked: false, name };
     const listItems = [...items, myNewItem];
-    setAndSaveItems(listItems);
+    setItems(listItems);
   };
 
   const handleChange = (id) => {
@@ -30,13 +28,13 @@ function App() {
           }
         : item
     );
-    setAndSaveItems(listedItem);
+    setItems(listedItem);
   };
 
   const handleDelete = (id) => {
     const filteredItems = items.filter((item) => item.id !== id);
     console.log(filteredItems);
-    setAndSaveItems(filteredItems);
+    setItems(filteredItems);
   };
 
   const handleSubmit = (e) => {
